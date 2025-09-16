@@ -1,0 +1,87 @@
+@import "tailwindcss";
+/*
+============================================
+ GOLD & BLACK THEME
+============================================
+--bg-primary: A deep, charcoal black for main backgrounds.
+--bg-secondary: A slightly lighter black for cards and secondary panels.
+--text-primary: A soft, off-white for main body text for readability.
+--text-secondary: A muted gray for subtitles and less important text.
+--accent-primary: A vibrant, rich gold for primary buttons, links, and highlights.
+--accent-secondary: A brighter, glowing yellow for hover effects and borders.
+--border-color: A subtle gold/amber with low opacity for clean divisions.
+============================================
+*/
+/* In globals.css */
+@keyframes animate-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-text-gradient {
+  background-size: 200% 200%;
+  animation: animate-gradient 3s ease-in-out infinite alternate;
+}
+:root {
+  --bg-primary: #121212; /* Charcoal Black */
+  --bg-secondary: #1a1a1a; /* Lighter Black */
+  --text-primary: #e0e0e0; /* Off-White */
+  --text-secondary: #a0a0a0; /* Muted Gray */
+  --accent-primary: #d4af37; /* Rich Gold */
+  --accent-secondary: #ffc107; /* Bright Amber/Yellow */
+  --border-color: rgba(255, 193, 7, 0.2); /* Amber with 20% opacity */
+}
+
+/* Base styles using the new theme */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--accent-primary);
+}
+
+p {
+  color: var(--text-primary);
+}
+
+a {
+  color: var(--accent-secondary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-primary);
+}
+
+/* Example of how to use these variables on your components */
+.card-element {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.primary-button {
+  background-color: var(--accent-primary);
+  color: var(--bg-primary);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.primary-button:hover {
+  background-color: var(--accent-secondary);
+}
