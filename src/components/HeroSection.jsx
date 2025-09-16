@@ -30,7 +30,7 @@ const HeroSection = () => {
           }`}
           style={{ transitionDelay: "200ms" }}
         >
-          Join India’s Premier Business Plan Competition and transform your vision into a venture.
+          Join Central India’s largest Business Plan Junior Competition. A chance to bring your innovative ideas to light and vision into successful business ventures.
         </p>
         <button
           onClick={() => scrollTo("register")}

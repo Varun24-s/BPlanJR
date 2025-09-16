@@ -40,7 +40,7 @@ const Navigation = () => {
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <div className="cursor-pointer flex items-center" onClick={() => scrollToSection("home")}>
-          <img src={ecellLogo} alt="E-Cell Logo" className="h-12 w-auto" />
+          <img src={ecellLogo} alt="E-Cell Logo" className="h-22 w-auto" />
         </div>
 
         {/* Desktop Navigation */}

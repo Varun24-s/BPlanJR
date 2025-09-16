@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 const RegisterNow = () => {
   const [name, setName] = useState("");
+  const [teamName, setTeamName]= useState("");
   const [email, setEmail] = useState("");
   const [org, setOrg] = useState("");
   const [year, setYear] = useState("");
@@ -24,13 +25,13 @@ const RegisterNow = () => {
 
     setIsSubmitting(true); // Disable button and show loading state
 
-    const url = "https://script.google.com/macros/s/AKfycbykd5ullmt4npfBFDtf4K2-AdwzAYZVSMlU9vFSIS1iP0z59zSFgK8KefjBB_tWXcwl/exec";
+    const url = "https://script.google.com/macros/s/AKfycbyx42unPOTMWGY2K9TM9dIDPL3N9GBEWy_1lElrcAlqY4KFn-CPO_TaAKzqTvhX64YW/exec";
 
     try {
       const response = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `Name=${encodeURIComponent(name)}&Email=${encodeURIComponent(email)}&College=${encodeURIComponent(org)}&Year=${encodeURIComponent(year)}&Phone=${encodeURIComponent(phone)}`
+        body: `Name=${encodeURIComponent(name)}&TeamName=${encodeURIComponent(teamName)}&Email=${encodeURIComponent(email)}&College=${encodeURIComponent(org)}&Year=${encodeURIComponent(year)}&Phone=${encodeURIComponent(phone)}`
       });
 
       if (!response.ok) {
@@ -43,6 +44,7 @@ const RegisterNow = () => {
 
       setStatus({ type: "success", msg: "Thanks! Your form has been submitted successfully." });
       setName("");
+      setTeamName("");
       setPhone("");
       setEmail("");
       setOrg("");
@@ -78,14 +80,21 @@ const RegisterNow = () => {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="Your Name"
+              placeholder="Team Leader Name"
+              className="w-full px-4 py-3 bg-black/30 border border-yellow-500/20 text-white placeholder-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-colors"
+            />
+            <input
+              type="text"
+              value={teamName}
+              onChange={(e) => setTeamName(e.target.value)}
+              placeholder="Team Name"
               className="w-full px-4 py-3 bg-black/30 border border-yellow-500/20 text-white placeholder-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-colors"
             />
             <input
               type="number"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              placeholder="Your Phone"
+              placeholder="Team Leader Phone"
               className="w-full px-4 py-3 bg-black/30 border border-yellow-500/20 text-white placeholder-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-colors"
             />
 
@@ -93,28 +102,42 @@ const RegisterNow = () => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Your Email"
+              placeholder="Team Leader Email"
               className="w-full px-4 py-3 bg-black/30 border border-yellow-500/20 text-white placeholder-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-colors"
             />
             <input
               type="text"
               value={org}
               onChange={(e) => setOrg(e.target.value)}
-              placeholder="College / Organization"
+              placeholder="College / School"
               className="w-full px-4 py-3 bg-black/30 border border-yellow-500/20 text-white placeholder-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-colors"
             />
             
             <select
               value={year}
               onChange={(e) => setYear(e.target.value)}
-              placeholder="Year"
+              placeholder="Year / Standard"
               className="w-full px-4 py-3 bg-black/30 border border-yellow-500/20 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-colors"
                 >
-  <option value="" disabled className="bg-black text-white">Select Year</option>
+  <option value="" disabled className="bg-black text-white">Select Year / Standard</option>
+    <option value="6th Standard" className="bg-black text-white">6th Standard</option>
+    <option value="7th Standard" className="bg-black text-white">7th Standard</option>
+    <option value="8th Standard" className="bg-black text-white">8th Standard</option>
+    <option value="9th Standard" className="bg-black text-white">9th Standard</option>
+    <option value="10th Standard" className="bg-black text-white">10th Standard</option>
+    <option value="11th Standard" className="bg-black text-white">11th Standard</option>
+    <option value="12th Standard" className="bg-black text-white">12th Standard</option>
   <option value="1st year" className="bg-black text-white">1st Year</option>
   <option value="2nd year" className="bg-black text-white">2nd Year</option>
   <option value="3rd year" className="bg-black text-white">3rd Year</option>
   <option value="4th year" className="bg-black text-white">4th Year</option>
+  
+  
+  
+  
+  
+
+
 </select>
 
             <button
@@ -123,7 +146,7 @@ const RegisterNow = () => {
               disabled={isSubmitting}
               className="w-full py-3 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-black font-bold rounded-lg shadow-md shadow-yellow-500/30 hover:scale-105 hover:shadow-yellow-400/40 transition-all disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              {isSubmitting ? 'Submitting...' : '🚀 Register Now'}
+              {isSubmitting ? 'Submitting...' : 'Register Now'}
             </button>
 
             {status && (
