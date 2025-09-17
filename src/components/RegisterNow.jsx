@@ -10,6 +10,9 @@ const RegisterNow = () => {
   const [year, setYear] = useState("");
   const [phone, setPhone] = useState("");
   const [status, setStatus] = useState(null);
+  const [manit, setManit] = useState(""); // Track if from MANIT
+const [utrId, setUtrId] = useState("");   // Track UTR ID input
+
   // NEW: State to track submission progress
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -25,13 +28,13 @@ const RegisterNow = () => {
 
     setIsSubmitting(true); // Disable button and show loading state
 
-    const url = "https://script.google.com/macros/s/AKfycbyx42unPOTMWGY2K9TM9dIDPL3N9GBEWy_1lElrcAlqY4KFn-CPO_TaAKzqTvhX64YW/exec";
+    const url = "https://script.google.com/macros/s/AKfycby48eFRsjoPuX6n7u-SXhsJt2iBRRyUTePggXxKiw7Yc6HmOYBx1gcMq9AbtCPkdzdI/exec";
 
     try {
       const response = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `Name=${encodeURIComponent(name)}&TeamName=${encodeURIComponent(teamName)}&Email=${encodeURIComponent(email)}&College=${encodeURIComponent(org)}&Year=${encodeURIComponent(year)}&Phone=${encodeURIComponent(phone)}`
+        body: `Name=${encodeURIComponent(name)}&TeamName=${encodeURIComponent(teamName)}&Email=${encodeURIComponent(email)}&College=${encodeURIComponent(org)}&Year=${encodeURIComponent(year)}&Phone=${encodeURIComponent(phone)}&Manit=${encodeURIComponent(manit)}&UTR=${encodeURIComponent(utrId)}`
       });
 
       if (!response.ok) {
@@ -49,6 +52,8 @@ const RegisterNow = () => {
       setEmail("");
       setOrg("");
       setYear("");
+      setManit("");
+      setUtrId("");
     } catch (error) {
       console.error("Submission error:", error);
       setStatus({ type: "error", msg: "Something went wrong. Please try again." });
@@ -139,6 +144,56 @@ const RegisterNow = () => {
 
 
 </select>
+{/* Are you from MANIT? */}
+<div className="space-y-2">
+  <p className="text-white font-semibold">Are you from MANIT?</p>
+  <div className="flex items-center space-x-4">
+    <label className="flex items-center space-x-2 text-white">
+      <input
+        type="radio"
+        name="manit"
+        value="yes"
+        checked={manit === "yes"}
+        onChange={(e) => setManit(e.target.value)}
+        className="accent-yellow-400"
+      />
+      <span>Yes</span>
+    </label>
+    <label className="flex items-center space-x-2 text-white">
+      <input
+        type="radio"
+        name="manit"
+        value="no"
+        checked={manit === "no"}
+        onChange={(e) => setManit(e.target.value)}
+        className="accent-yellow-400"
+      />
+      <span>No</span>
+    </label>
+  </div>
+</div>
+
+{/* Show QR code and UTR input only if "No" is selected */}
+{manit === "no" && (
+  <div className="space-y-4">
+    <div className="text-center">
+      <img
+        src="/path-to-your-qr-code.png" // Replace this with the actual QR image path
+        alt="Payment QR Code"
+        className="mx-auto w-48 h-48"
+      />
+      <p className="text-sm text-gray-400 mt-2">Scan this QR code to make the payment.</p>
+    </div>
+    <input
+      type="text"
+      value={utrId}
+      onChange={(e) => setUtrId(e.target.value)}
+      placeholder="Enter UTR ID for payment verification"
+      className="w-full px-4 py-3 bg-black/30 border border-yellow-500/20 text-white placeholder-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-colors"
+    />
+  </div>
+)}
+
 
             <button
               type="submit"

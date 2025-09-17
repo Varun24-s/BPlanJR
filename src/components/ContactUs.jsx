@@ -4,9 +4,10 @@ import HarshSir from "../assets/HarshSir.jpg";
 import GurleenMam from "../assets/GurleenMa'am.jpg";
 import NiddhiMam from "../assets/NiddhiMa'am.jpg";
 import SannidhiyaSir from "../assets/SannidhyaSir.jpg";
+import NachiketSir from "../assets/NachiketSir.jpg";
 
 const team = [
-  { name: "Nachiket Bakshi", role: "Joint Secretary", email: "nachiket11bakshi@gmail.com", phone: "+91 70006 16813", linkedin: "https://www.linkedin.com/in/nachiket-bakshi-4a09362a8/", img: "https://picsum.photos/400?random=1" },
+  { name: "Nachiket Bakshi", role: "Joint Secretary", email: "nachiket11bakshi@gmail.com", phone: "+91 70006 16813", linkedin: "https://www.linkedin.com/in/nachiket-bakshi-4a09362a8/", img: NachiketSir },
   { name: "Sannidhya Srivastava", role: "Strategic Lead", email: "sannidhya123567@gmail.com", phone: "+91 76074 76106", linkedin: "https://www.linkedin.com/in/sannidhya-srivastava-4976a9277/", img: SannidhiyaSir },
   { name: "Harsh Malik", role: "Public Relations Lead", email: "harshmalik96433@gmail.com", phone: "+91 87703 77416", linkedin: "https://www.linkedin.com/in/harsh13malik/", img: HarshSir },
   { name: "Gurleen Kaur Bhatia", role: "Public Relations Secretary", email: "gurleenbhatia211359@gmail.com", phone: "+91 90090 27777", linkedin: "https://www.linkedin.com/in/gurleen-kaur-bhatia-8613a2290/", img: GurleenMam },
