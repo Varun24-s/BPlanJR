@@ -2,7 +2,6 @@ import React from "react";
 
 const WhyRegister = () => {
   const items = [
-    
     { title: "Certificate", desc: "Receive a certificate of participation." },
     { title: "Skill Building", desc: "Build professional and business acumen." },
     { title: "Communication", desc: "An opportunity to improve communication and problem-solving skills." },
@@ -10,6 +9,7 @@ const WhyRegister = () => {
     { title: "Investor Access", desc: "Network with VCs, investors, and founders during E-Summit '26." },
     { title: "Competition", desc: "Compete for the Main Stage prize presented by the Chief Guest." },
     { title: "Pitching Experience", desc: "Gain a real pitching experience in front of industry leaders." },
+    { title: "Exposure", desc: "Showcase your ideas to a large audience and gain recognition." }, 
   ];
 
   return (

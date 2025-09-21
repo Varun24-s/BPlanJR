@@ -6,7 +6,6 @@ import img3 from "../assets/DSC_0029.JPG";
 import img4 from "../assets/DSC_0034.JPG";
 import img5 from "../assets/DSC_0324.JPG";
 import img6 from "../assets/DSC_0182.JPG";
-import img7 from "../assets/DSC_0346.JPG";
 import img8 from "../assets/DSC_0175.JPG";
 
 import React from "react";
@@ -15,7 +14,7 @@ import { Autoplay } from "swiper/modules";
 
 import "swiper/css";
 
-const images = [img1, img2, img3, img4, img5, img6, img7, img8];
+const images = [img1, img2, img3, img4, img5, img6, img8];
 
 const EventGallery = () => (
   <section id="gallery" className="py-20 bg-black">

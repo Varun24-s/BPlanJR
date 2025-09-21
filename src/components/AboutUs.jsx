@@ -46,7 +46,7 @@ const AboutUs = () => (
           </p>
           <div className="space-y-4">
             {[
-              "Prize pool of ₹1 Lakh+",
+              "Prize pool of ₹20k",
               "Mentorship from industry leaders",
               "Exclusive networking opportunities",
               "Direct access to investors",
@@ -64,10 +64,11 @@ const AboutUs = () => (
             <div className="absolute left-2 top-2 bottom-2 w-0.5 bg-yellow-500/30" />
             <ul className="space-y-8">
               {[
-                { phase: "Round 1 – PPT Submission", date: "Oct 13-20" },
-                { phase: "Round 1 Results", date: "Nov 1-2" },
-                { phase: "Round 2 – Offline Event+Mentorship", date: "Nov 8-9" },
-                { phase: " Final Results", date: "Nov 29-30" },
+                { phase: "Mentorship Session", date: "Oct 12" },
+                { phase: "Round 1 – PPT Submission", date: "Oct 14-18" },
+                { phase: "Round 1 – Result", date: "Nov 1-2" },
+                { phase: "Round 2 – PPT Pitching Round", date: "Nov 8-9" },
+                { phase: " Final Results", date: "By end of November" },
               ].map((i) => (
                 <li key={i.phase} className="flex items-center">
                   <div className="absolute left-0 h-4 w-4 rounded-full bg-yellow-400 border-4 border-gray-900" />

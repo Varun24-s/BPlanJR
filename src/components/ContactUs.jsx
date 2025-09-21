@@ -1,17 +1,16 @@
 import { useState } from "react";
-import { Mail, Linkedin, Phone, Instagram } from "lucide-react";  // Added Phone and Instagram icons
-import HarshSir from "../assets/HarshSir.jpg";
+import { Mail, Linkedin,  Instagram } from "lucide-react"; // replaced Phone with MessageCircle
+import { FaWhatsapp } from "react-icons/fa"; 
+import HarshSir from "../assets/Harsh malik sir.jpg";
 import GurleenMam from "../assets/GurleenMa'am.jpg";
-import NiddhiMam from "../assets/NiddhiMa'am.jpg";
 import SannidhiyaSir from "../assets/SannidhyaSir.jpg";
-import NachiketSir from "../assets/NachiketSir.jpg";
+import AshokSir from "../assets/abhinavAshok.jpeg";
 
 const team = [
-  { name: "Nachiket Bakshi", role: "Joint Secretary", email: "nachiket11bakshi@gmail.com", phone: "+91 70006 16813", linkedin: "https://www.linkedin.com/in/nachiket-bakshi-4a09362a8/", img: NachiketSir },
-  { name: "Sannidhya Srivastava", role: "Strategic Lead", email: "sannidhya123567@gmail.com", phone: "+91 76074 76106", linkedin: "https://www.linkedin.com/in/sannidhya-srivastava-4976a9277/", img: SannidhiyaSir },
-  { name: "Harsh Malik", role: "Public Relations Lead", email: "harshmalik96433@gmail.com", phone: "+91 87703 77416", linkedin: "https://www.linkedin.com/in/harsh13malik/", img: HarshSir },
-  { name: "Gurleen Kaur Bhatia", role: "Public Relations Secretary", email: "gurleenbhatia211359@gmail.com", phone: "+91 90090 27777", linkedin: "https://www.linkedin.com/in/gurleen-kaur-bhatia-8613a2290/", img: GurleenMam },
-  { name: "Nidhi Singh Thakur", role: "Promotions Lead", email: "pvt.nidhisingh07@gmail.com", phone: "+91 94796 06424", linkedin: "https://www.linkedin.com/in/nidhi-singh-thakur-17a69a290/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", img: NiddhiMam },
+  { name: "Sannidhya Srivastava", role: "Strategic Lead", email: "sannidhya123567@gmail.com", whatsapp: "+917607476106", linkedin: "https://www.linkedin.com/in/sannidhya-srivastava-4976a9277/", img: SannidhiyaSir },
+  { name: "Harsh Malik", role: "Public Relations Lead", email: "harshmalik96433@gmail.com", whatsapp: "+918770377416", linkedin: "https://www.linkedin.com/in/harsh13malik/", img: HarshSir },
+  { name: "Gurleen Kaur Bhatia", role: "Public Relations Secretary", email: "gurleenbhatia211359@gmail.com", whatsapp: "+919009027777", linkedin: "https://www.linkedin.com/in/gurleen-kaur-bhatia-8613a2290/", img: GurleenMam },
+  { name: "Abhinav Ashok", role: "Operations Lead", email: "", whatsapp: "+919771747257", linkedin: "", img: AshokSir },
 ];
 
 const TeamCard = ({ member }) => {
@@ -39,10 +38,9 @@ const TeamCard = ({ member }) => {
             <a href={`mailto:${member.email}`} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
               <Mail className={iconClass} />
             </a>
-            <a href={`tel:${member.phone}`} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
-              <Phone className={iconClass} />
+            <a href={`https://wa.me/${member.whatsapp.replace("+", "")}`} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
+              <FaWhatsapp className={iconClass} />
             </a>
-            
           </div>
         </div>
       )}
@@ -58,7 +56,7 @@ const ContactUs = () => (
           Contact Us
         </span>
       </h2>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 justify-items-center">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8 justify-items-center">
         {team.map((member) => (
           <TeamCard key={member.name} member={member} />
         ))}
