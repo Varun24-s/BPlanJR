@@ -207,7 +207,7 @@ const RegisterNow = () => {
                       </div>
                     )}
 
-                    <p className="text-sm text-gray-400">{participationType === "team" ? "Pay ₹399 for Team registration." : "Pay ₹119 for Individual registration."}</p>
+                    <p className="text-sm text-gray-400">{participationType === "team" ? "Pay ₹499 for Team registration." : "Pay ₹149 for Individual registration."}</p>
 
                     <input type="text" value={utrId} onChange={(e) => setUtrId(e.target.value)} placeholder="Enter UTR ID for payment verification" className="w-full px-4 py-3 bg-black/30 border border-yellow-500/20 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400" />
                   </div>
