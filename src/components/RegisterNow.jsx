@@ -65,7 +65,7 @@ const RegisterNow = () => {
     }
 
     const url =
-      "https://script.google.com/macros/s/AKfycbw4SNoGGFDHrNu3lOZ1tC-MmSo-JlRAuIcxd4uOLHmMc3fz5UWVpU0Uhes2cAEr4kys/exec";
+      "https://script.google.com/macros/s/AKfycby6pdxwVnehWAsfrhjd_ShvcyAVuaS_gypV3UNjsNmF5nLBbGQi9LWoOdoEGxl4b01G/exec";
 
     try {
       const body = new URLSearchParams({
@@ -78,8 +78,8 @@ const RegisterNow = () => {
         ScholarNo: scholarNo,
         UTR: utrId,
         ParticipationType: participationType,
-        Participants: participants.join(", "),
-        IdCardLink: idCardLink,
+        Participants: participants.join(", "), // includes leader + members
+        IdCardLink: idCardLink, // only leader
       });
 
       const response = await fetch(url, {
@@ -112,6 +112,7 @@ const RegisterNow = () => {
       setIsSubmitting(false);
     }
   };
+
 
   return (
     <section id="register" className="py-24 bg-transparent relative">
@@ -159,7 +160,7 @@ const RegisterNow = () => {
                 MANIT participants must provide their Scholar Number (Registration is Free).
               </li>
               <li>
-                A valid Google Drive link of your ID Card is mandatory for all.
+                A valid Google Drive link of your ID Card is mandatory for all.(Provide public view access link)
               </li>
               <li>Maximum 4 participants allowed per team (including team leader).</li>
             </ul>
@@ -359,10 +360,15 @@ const RegisterNow = () => {
                   type="url"
                   value={idCardLink}
                   onChange={(e) => setIdCardLink(e.target.value)}
-                  placeholder="Google Drive Link of your ID Card"
+                  placeholder={
+                    participationType === "team"
+                      ? "Leader's ID Card Google Drive Link"
+                      : "Your ID Card Google Drive Link"
+                  }
                   className="w-full px-4 py-3 bg-black/30 border border-yellow-500/20 text-white rounded-lg"
                   required
                 />
+
 
                 {manit === "no" && (
                   <div className="space-y-4 text-center">
